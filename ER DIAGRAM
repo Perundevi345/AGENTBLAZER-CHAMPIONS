@@ -1,0 +1,96 @@
+ER Diagram — AI FAQ Assistant
+You can use the following ER diagram for the ER-DIAGRAM section of your SkillWallet project.
+
+┌─────────────────────────┐
+│          USER           │
+├─────────────────────────┤
+│ PK  _id                 │
+│     name                │
+│     email               │
+│     password            │
+│     role                │
+│     createdAt           │
+└────────────┬────────────┘
+             │
+             │ 1
+             │
+             │ creates
+             │
+             │ N
+┌────────────▼────────────┐
+│          FAQ            │
+├─────────────────────────┤
+│ PK  _id                 │
+│     question            │
+│     answer              │
+│     category            │
+│ FK  createdBy           │
+│     createdAt           │
+│     updatedAt           │
+└────────────┬────────────┘
+             │
+             │ N
+             │
+             │ used by
+             │
+             │ N
+┌────────────▼────────────┐
+│      AI_QUERY           │
+├─────────────────────────┤
+│ PK  _id                 │
+│     question            │
+│     answer              │
+│ FK  userId              │
+│ FK  faqId               │
+│     createdAt           │
+└─────────────────────────┘
+
+Entities
+USER
+
+_id — Primary Key
+
+name
+
+email
+
+password
+
+role
+
+createdAt
+
+FAQ
+
+_id — Primary Key
+
+question
+
+answer
+
+category
+
+createdBy — Foreign Key → USER._id
+
+createdAt
+
+updatedAt
+
+AI_QUERY
+
+_id — Primary Key
+
+question
+
+answer
+
+userId — Foreign Key → USER._id
+
+faqId — Foreign Key → FAQ._id
+
+createdAt
+
+Relationships
+USER 1 ─────────── N FAQ
+USER 1 ─────────── N AI_QUERY
+FAQ  N ─────────── N AI_QUERY
