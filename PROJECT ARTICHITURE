@@ -1,0 +1,23 @@
+Project name / purpose
+
+Technology (e.g. Python, React, Node.js, Java, PHP)
+
+Main features
+
+Any existing code/files you already have
+
+I can then provide a structure like:
+
+project/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── models/
+│   └── utils/
+├── tests/
+├── config/
+├── public/
+├── README.md
+├── package.json
+└── .env.example
